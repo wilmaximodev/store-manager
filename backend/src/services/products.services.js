@@ -1,7 +1,7 @@
-const getProducts = require('../models/products.model');
+const productsModel = require('../models/products.model');
 
 const showAllProducts = async () => {
-  const products = await getProducts.getAll();
+  const products = await productsModel.getAll();
     return {  
       status: 200,
       data: products,
@@ -9,7 +9,7 @@ const showAllProducts = async () => {
 };
   
 const productById = async (id) => {
-  const product = await getProducts.getById(id);
+  const product = await productsModel.getById(id);
   if (!product) {
     return {
       status: 404,
@@ -24,7 +24,16 @@ const productById = async (id) => {
   };
 };
 
+const createProduct = async (name) => {
+  const product = await productsModel.newProduct(name);
+  return {
+    status: 201,
+    data: product,
+  };
+};
+
 module.exports = {
   showAllProducts,
   productById,
+  createProduct,
 };
