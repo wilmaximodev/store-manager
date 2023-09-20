@@ -6,4 +6,6 @@ const httpStatusCode = {
     BAD_REQUEST: 400,
   };
   
-  module.exports = httpStatusCode;
+  const statusCode = (status) => httpStatusCode[status] || 500;
+
+  module.exports = statusCode;

@@ -10,19 +10,27 @@ const getById = async (id) => {
   return product;
 };
 
-const newProduct = async (name) => {
-  const [{ insertId }] = await connection.execute(`
-    INSERT INTO products (name)
-    VALUES (?)`, [name]);
+const newProduct = async (name, productID) => {
+  const updated = await connection.execute(
+    'UPDATE products SET name = ? WHERE id = ?',
+    [name, productID],
+  );
+  return updated;
+};
 
-  return {
-    id: insertId,
-    name,
-    };
+const updateProduct = async (id, name) => {
+  const [productUpdat] = await connection.execute(
+    `UPDATE products
+    SET name = ? 
+    WHERE id = ?`,
+    [name, id],
+  );
+  return productUpdat;
 };
 
 module.exports = {
   getAll,
   getById,
   newProduct,
+  updateProduct,
 };
