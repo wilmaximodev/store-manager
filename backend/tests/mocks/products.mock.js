@@ -13,6 +13,12 @@ const mockProducts = [
   },
 ];
 
+const mockProductsId = [ {
+  id: 1,
+  name: 'Martelo de Thor',
+}];
+
 module.exports = {
   mockProducts,
+  mockProductsId,
 };
