@@ -13,7 +13,7 @@ const mockProducts = [
   },
 ];
 
-const mockProductsId = [ {
+const mockProductsId = [{
   id: 1,
   name: 'Martelo de Thor',
 }];
