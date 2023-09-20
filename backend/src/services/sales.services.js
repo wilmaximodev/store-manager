@@ -1,7 +1,7 @@
-const getSales = require('../models/sales.model');
+const salesModel = require('../models/sales.model');
 
 const showAllSales = async () => {
-  const sales = await getSales.getAll();
+  const sales = await salesModel.getAll();
     return {  
       status: 200,
       data: sales,
@@ -9,7 +9,7 @@ const showAllSales = async () => {
 };
   
 const saleById = async (id) => {
-  const sale = await getSales.getById(id);
+  const sale = await salesModel.getById(id);
   if (sale.length === 0) {
     return {
       status: 404,
@@ -22,7 +22,13 @@ const saleById = async (id) => {
   };
 };
 
+const createSale = async (sale) => {
+  const newSale = await salesModel.createSalesProductModel(sale);
+  return newSale;
+};
+
 module.exports = {
   showAllSales,
   saleById,
+  createSale,
 };
