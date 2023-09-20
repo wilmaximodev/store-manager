@@ -9,7 +9,8 @@ const {
 
 router.get('/:id', salesController.getSaleById);
 router.get('/', salesController.getAllSales);
-router.post('/',
+router.post(
+  '/',
   validProduct,
   validQuant,
   validQuantProd,
