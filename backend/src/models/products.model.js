@@ -10,12 +10,15 @@ const getById = async (id) => {
   return product;
 };
 
-const newProduct = async (name, productID) => {
-  const updated = await connection.execute(
-    'UPDATE products SET name = ? WHERE id = ?',
-    [name, productID],
-  );
-  return updated;
+const newProduct = async (name) => {
+  const [{ insertId }] = await connection.execute(`
+    INSERT INTO products (name)
+    VALUES (?)`, [name]);
+
+  return {
+    id: insertId,
+    name,
+  };
 };
 
 const updateProduct = async (id, name) => {
