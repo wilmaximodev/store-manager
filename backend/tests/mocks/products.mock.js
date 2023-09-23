@@ -18,7 +18,18 @@ const mockProductsId = [{
   name: 'Martelo de Thor',
 }];
 
+const mockNewProduct = [{
+  name: 'Product Test',
+}];
+
+const addProduct = {
+  id: 4,
+  name: 'Alicate do Homem de Ferro',
+};
+
 module.exports = {
   mockProducts,
   mockProductsId,
+  mockNewProduct,
+  addProduct,
 };

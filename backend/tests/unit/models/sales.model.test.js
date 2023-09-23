@@ -21,6 +21,29 @@ describe('Testando camada model de sales', function () {
     expect(sale).to.be.deep.equal(salesMockId);
   });
 
+  it('Testa se é possível criar uma Venda', async function () {
+    const sale = [
+      {
+        productId: 1,
+        quantity: 1,
+      },
+      {
+        productId: 2,
+        quantity: 5,
+      },
+    ];
+    const saleDb = {
+      id: 1,
+      itemsSold: sale,
+    };
+
+    sinon.stub(connection, 'execute').resolves([{ insertId: 1 }]);
+
+    const result = await salesModel.createSalesProductModel(sale);
+
+    expect(result).to.be.deep.equal(saleDb);
+});
+
   afterEach(function () {
     sinon.restore();
   });
