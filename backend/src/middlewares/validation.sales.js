@@ -1,5 +1,3 @@
-const productsModel = require('../models/products.model');
-
 const validProduct = async (req, res, next) => {
   const { body } = req;
   if (body.some((element) => !element.productId)) {
@@ -24,24 +22,8 @@ const validQuantProd = async (req, res, next) => {
   return next();
 };
 
-const validIfExist = async (req, res, next) => {
-  const { body } = req;
-  const resolve = body.map(async (element) => {
-    const prod = await productsModel.getById(element.productId);
-    if (!prod) {
-      return res.status(404).json({ message: 'Product not found' });
-    }
-    return null;
-  });
-  if ((await Promise.all(resolve)).some((element) => element !== null)) {
-    return null;
-  }
-  return next();
-};
-
 module.exports = {
   validProduct,
   validQuant,
   validQuantProd,
-  validIfExist,
 };

@@ -4,7 +4,6 @@ const {
   validProduct,
   validQuant,
   validQuantProd,
-  validIfExist,
 } = require('../middlewares/validation.sales');
 
 router.get('/:id', salesController.getSaleById);
@@ -14,7 +13,6 @@ router.post(
   validProduct,
   validQuant,
   validQuantProd,
-  validIfExist,
   salesController.addSale,
 );
 
