@@ -40,6 +40,7 @@ Execute o seguinte comando na pasta raiz:
 
 ```bash
 npm start
+```
 
 ## Funcionalidades
 
