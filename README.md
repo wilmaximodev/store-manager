@@ -15,7 +15,7 @@ Este projeto foi desenvolvido na [@Trybe](https://www.betrybe.com/) como parte d
 1. Clone o projeto:
 
     ```bash
-    git clone git@github.com:seu-usuario/store-manager.git
+    git clone git@github.com:wilmaximodev/store-manager.git
     ```
 
 2. Instale as dependências:
